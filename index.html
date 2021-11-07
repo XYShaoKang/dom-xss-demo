@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM-XSS 示例</title>
+  </head>
+  <body>
+    <div id="unsafe" class="container">
+      <h2>不安全的方式</h2>
+      <div class="content">
+        <textarea
+          class="edit"
+          placeholder="编辑区域
+输入文本,点击下方的按钮
+可以在右侧的预览和源码窗口查看对应的生成的源码和效果"
+        ></textarea>
+        <div class="preview">
+          <div class="dom">
+            <iframe name="unsafe" src="preview.html"></iframe>
+          </div>
+          <div class="source"></div>
+        </div>
+      </div>
+      <div>
+        <button class="submit-str">插入为文本</button>
+      </div>
+    </div>
+    <div id="safe" class="container">
+      <h2>安全的方式</h2>
+      <div class="content">
+        <textarea
+          class="edit"
+          placeholder="编辑区域
+输入文本,点击下方的按钮
+可以在右侧的预览和源码窗口查看对应的生成的源码和效果"
+        ></textarea>
+        <div class="preview">
+          <div class="dom">
+            <iframe name="safe" src="preview.html"></iframe>
+          </div>
+          <div class="source"></div>
+        </div>
+      </div>
+      <div>
+        <button class="submit-str">插入为文本</button>
+        <button class="submit-dom">插入为 DOM</button>
+      </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

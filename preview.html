@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ul,
+      li {
+        list-style: none;
+        padding: 1px;
+      }
+      li > div {
+        margin: 1px 0;
+        padding: 2px;
+        box-shadow: 1px 1px 6px lightgrey;
+      }
+    </style>
+  </head>
+  <body>
+    <aside>
+      <nav>导航</nav>
+    </aside>
+    <main id="root">
+      <ul></ul>
+    </main>
+    <script>
+      const ul = document.querySelector('#root>ul')
+      function render(data) {
+        for (const content of data) {
+          const li = document.createElement('li')
+          const contentElement = document.createElement('div')
+          contentElement.innerHTML = content
+          li.append(contentElement)
+          ul.append(li)
+        }
+      }
+      render(['内容1', '内容2'])
+
+      function add(text) {
+        render([text])
+      }
+    </script>
+  </body>
+</html>
